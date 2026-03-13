@@ -1,0 +1,37 @@
+# MISO Transmission Cost Estimation Guide For MTEP24
+# circuit data
+# HV_line reactance_km cost_km (M$/km-yr)
+START
+  69 0.45  1.06
+  115 0.40 1.18
+  138 0.35 1.24
+  161 0.32 1.31
+  230 0.30 1.37
+  345 0.25 2.18
+  500 0.20 2.73
+  765 0.15 3.42
+END
+
+# transformer data (costs in $/MVA-yr)
+# 69 115 138 161 230 345 500 765
+START
+  69 5606 4564 5050 5317 5896 7239 9336 13135
+  115 4564 6209 5050 5317 5896 6880 8444 10807
+  138 5050 5050 6880 5606 5896 6880 8444 10807
+  161 5317 5317 5606 7622 6209 7239 8884 10807
+  230 5896 5896 5896 6209 8444 7239 8884 10807
+  345 7239 6880 6880 7239 7239 10286 9336 11340
+  500 9336 8444 8444 8884 8884 9336 13784 12510
+  765 13135 10807 10807 10807 10807 11340 12510 18475
+END
+
+# inflation adjustments for generation costs (May, 2024)
+% system year cost_mult
+START
+  pglib_opf_case3012wp_k 2008 1.49
+  pglib_opf_case6495_rte 2013 1.36
+  pglib_opf_case7336_epigrids 2021 1.20
+  CaliforniaTestSystem 2019 1.25
+  pglib_opf_case9591_goc 2020 1.22
+  pglib_opf_case10000_goc 2017 1.29
+END
